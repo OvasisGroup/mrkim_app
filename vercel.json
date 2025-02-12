@@ -1,15 +1,16 @@
 {
+    "version": 2,
     "builds": [
       {
-        "src": "next.config.js",
+        "src": "index.js",
         "use": "@vercel/node"
       }
     ],
-    "env": {
-      "DATABASE_URL": "your-database-url"
-    },
-    "hooks": {
-      "build": "prisma generate"
-    }
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "/api/$1"
+      }
+    ]
   }
   
