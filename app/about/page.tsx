@@ -8,14 +8,15 @@ import { useRouter } from "next/navigation"
 import { useState } from "react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { zodResolver } from '@hookform/resolvers/zod';
-import { createTvetSchema } from "../api/tvets/createTvetSchema";
 import { z } from "zod";
 import Spinner from "@/components/Spinner";
+import { createTvetSchema } from "../api/tvets/createTvetSchema";
 // import { Terminal } from "lucide-react"
 
 type FormData = z.infer<typeof createTvetSchema>;
 
 const Aboutpage = () => {
+  
   const router = useRouter();
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(createTvetSchema),
@@ -56,7 +57,7 @@ const Aboutpage = () => {
           placeholder='Enter your name'
         />
         {errors.title && <small className="text-red-500">Title is required</small>}
-        <Button variant="outline" className='w-full' type="submit" disabled={isSubmitting}>
+        <Button variant="outline" className='w-full mt-2' type="submit" disabled={isSubmitting}>
           Submit {isSubmitting && <Spinner />}
         </Button>
       </form>

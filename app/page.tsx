@@ -1,12 +1,27 @@
-
+"use client"
+import Loader from '@/components/Loader';
+import SignOut from '@/components/Signout';
+import { useSession } from 'next-auth/react';
+import React from 'react'
 
 export default function Home() {
+  const { data: session, status } = useSession();
+  if (status === "loading") return <Loader/>;
+
+
   return (
-    <div className="">
-      dfsdfdsfsdf
+    <div className='my-4'>
+     {session ? (
+        <p>Welcome, {session.user?.name}!</p>
+      ) : (
+        <p>You are not logged in.</p>
+      )}
+
+      <SignOut/>
     </div>
-  );
+  )
 }
+
 
 
 // <Image
