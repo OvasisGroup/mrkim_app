@@ -1,10 +1,13 @@
 "use client"
-import Loader from '@/components/Loader';
-import SignOut from '@/components/Signout';
+import Loader from '@/app/[locale]/components/Loader';
+import SignOut from '@/app/[locale]/components/Signout';
 import { useSession } from 'next-auth/react';
+import { useTranslations } from 'next-intl';
 import React from 'react'
 
 export default function Home() {
+  const t = useTranslations('HomePage');
+  console.log(t('title'));
   const { data: session, status } = useSession();
   if (status === "loading") return <Loader/>;
 
@@ -12,7 +15,7 @@ export default function Home() {
   return (
     <div className='my-4'>
      {session ? (
-        <p>Welcome, {session.user?.name}!</p>
+        <p>{ t('about') } Welcome, {session.user?.name}!</p>
       ) : (
         <p>You are not logged in.</p>
       )}

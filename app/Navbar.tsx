@@ -12,10 +12,13 @@ const Navbar = () => {
         { name: 'Home', href: '/' },
         { name: 'About', href: '/about' },
         { name: 'Contacts', href: '/contacts' },
+        { name: 'Jobs', href: '/jobs' },
+        { name: 'Services', href: '/services' },
+        { name: 'Premium', href: '/premium' },
     ]
 
     const leftlinks = [
-        { name: 'Get Started', href: '/' },
+        { name: 'Get Started', href: '/signin' },
     ]
 
     return (
