@@ -1,16 +1,16 @@
 "use client"
-import { Input } from "@/app/[locale]/components/ui/input"
-import { Button } from "@/app/[locale]/components/ui/button"
+import { Input } from "@/app/components/ui/input"
+import { Button } from "@/app/components/ui/button"
 import { useForm } from "react-hook-form";
 import "easymde/dist/easymde.min.css";
 import axios from "axios";
 import { useRouter } from "next/navigation"
 import { useState } from "react";
-import { Alert, AlertDescription, AlertTitle } from "@/app/[locale]/components/ui/alert"
+import { Alert, AlertDescription, AlertTitle } from "@/app/components/ui/alert"
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from "zod";
-import Spinner from "@/app/[locale]/components/Spinner";
-import { createTvetSchema } from "../../api/tvets/createTvetSchema";
+import Spinner from "@/app/components/Spinner";
+import { createTvetSchema } from "../api/tvets/createTvetSchema";
 // import { Terminal } from "lucide-react"
 
 type FormData = z.infer<typeof createTvetSchema>;

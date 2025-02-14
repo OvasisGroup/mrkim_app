@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "../globals.css";
-import Navbar from "../Navbar";
-import Footer from "../Footer";
+import "./globals.css";
+import Footer from "./Footer";
 import { SessionProvider } from "next-auth/react";
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import Navbar from "./components/Navbar";
+// import { NextIntlClientProvider } from "next-intl";
+// import { getMessages } from "next-intl/server";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,29 +25,29 @@ export const metadata: Metadata = {
 
 interface RootLayoutProps {
   children: React.ReactNode;
-  params: {
-    locale: string
-  };
+  // params: {
+  //   locale: string
+  // };
 }
 export default async function RootLayout({
   children,
-  params: { locale },
+  // params: { locale },
 }: Readonly<RootLayoutProps>) {
 
   // const messages = await getMessages(locale)
-  const messages = await getMessages();
+  // const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang='eng'>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <SessionProvider>
           <Navbar />
-          <main className="container mx-auto px-4 py-8">
-            <NextIntlClientProvider messages={messages}>
-              {children}
-            </NextIntlClientProvider>
+          <main className="">
+            {/* <NextIntlClientProvider messages={messages}> */}
+            {children}
+            {/* </NextIntlClientProvider> */}
           </main>
           <Footer />
         </SessionProvider>

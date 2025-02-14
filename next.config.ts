@@ -1,16 +1,23 @@
-import createNextIntlPlugin from 'next-intl/plugin';
- 
-const withNextIntl = createNextIntlPlugin();
- 
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
- 
-export default withNextIntl(nextConfig);
+// import createNextIntlPlugin from 'next-intl/plugin';
 
-// import type { NextConfig } from "next";
+// const withNextIntl = createNextIntlPlugin();
 
-// const nextConfig: NextConfig = {
-//   /* config options here */
-// };
+// /** @type {import('next').NextConfig} */
+// const nextConfig = {};
 
-// export default nextConfig;
+// export default withNextIntl(nextConfig);
+
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+    images: {
+        remotePatterns: [
+            {
+              protocol: "https",
+              hostname: "lh3.googleusercontent.com",
+            },
+          ],
+    },
+};
+
+export default nextConfig;
