@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Menu, X, ChevronDown, LogOut, Settings, User } from "lucide-react";
 import Link from "next/link";
 import { useSession } from 'next-auth/react';
+import { signOut } from "next-auth/react";
 // import { useRouter } from "next/router";
 import Image from "next/image";
 
@@ -73,7 +74,7 @@ const NavigationBar = () => {
                                 <ChevronDown size={16} className="ml-1" />
                             </button>
                             {langOpen && (
-                                <div className="absolute right-0 mt-2 w-32 bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-lg shadow-lg">
+                                <div className="absolute right-0 mt-4 w-32 bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-lg shadow-lg">
                                     <button className="block w-full px-4 py-2 text-left hover:bg-gray-200 dark:hover:bg-gray-700" onClick={() => changeLanguage("en")}>
                                         English
                                     </button>
@@ -91,7 +92,7 @@ const NavigationBar = () => {
                         {session ? (
                             <div className="relative">
                                 <button onClick={() => setProfileOpen(!profileOpen)} className="flex items-center space-x-2">
-                                    <Image src={session.user?.image} alt="User Avatar" width={36} height={36} className="rounded-full border" />
+                                    <Image src={session?.user?.image ?? "/default-avatar.png"} alt="User Avatar" width={36} height={36} className="rounded-full border" />
                                     <ChevronDown size={16} className="text-gray-800 dark:text-white" />
                                 </button>
                                 {profileOpen && (
@@ -167,7 +168,7 @@ const NavigationBar = () => {
                             <Link href="/settings" className="block text-gray-800 dark:text-white hover:text-blue-500">
                                 Settings
                             </Link>
-                            <button className="block w-full text-left text-red-600 dark:text-red-400 hover:text-red-700 mt-2">
+                            <button onClick={() => signOut()} className="block w-full text-left text-red-600 dark:text-red-400 hover:text-red-700 mt-2">
                                 Sign Out
                             </button>
                         </div>
