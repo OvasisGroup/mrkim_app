@@ -103,7 +103,7 @@ const NavigationBar = () => {
                                         <Link href="/settings" className="flex items-center px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
                                             <Settings size={16} className="mr-2" /> Settings
                                         </Link>
-                                        <button className="flex items-center px-4 py-2 w-full text-left hover:bg-gray-200 dark:hover:bg-gray-700 text-red-600 dark:text-red-400 py-4">
+                                        <button onClick={() => signOut()} className="flex items-center px-4 py-2 w-full text-left hover:bg-gray-200 dark:hover:bg-gray-700 text-red-600 dark:text-red-400 py-4">
                                             <LogOut size={16} className="mr-2" /> Sign Out
                                         </button>
                                     </div>

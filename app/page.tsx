@@ -1,10 +1,10 @@
 "use client"
 import Loader from '@/app/components/Loader';
-import SignOut from '@/app/components/Signout';
+// import SignOut from '@/app/components/Signout';
 import { useSession } from 'next-auth/react';
 // import { useTranslations } from 'next-intl';
 import React from 'react'
-import HeroSection from './components/Hero';
+// import HeroSection from './components/Hero';
 
 export default function Home() {
   // const t = useTranslations('HomePage');
@@ -21,9 +21,9 @@ export default function Home() {
         <p>You are not logged in.</p>
       )}
 
-      <HeroSection/>
+      {/* <HeroSection/>
 
-      <SignOut/>
+      <SignOut/> */}
     </div>
   )
 }
