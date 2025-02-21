@@ -14,7 +14,7 @@ export default function Home() {
 
 
   return (
-    <div className='container my-4'>
+    <div className='container my-4 mt-10'>
      {session ? (
         <p>Welcome, {session.user?.name}!</p>
       ) : (
