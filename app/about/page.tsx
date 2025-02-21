@@ -41,7 +41,7 @@ const Aboutpage = () => {
   };
 
   return (
-    <div className="flex flex-col items-start justify-start w-[1400px] mx-auto">
+    <div className="flex flex-col items-start justify-start w-[1400px] mx-auto mt-18 mb-10">
       {error &&
         <Alert variant="destructive" className="mb-4 bg-red-100">
           <AlertTitle className="font-bold text-red-500">Alert!</AlertTitle>
