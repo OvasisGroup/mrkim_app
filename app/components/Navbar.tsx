@@ -40,6 +40,7 @@ const NavigationBar = () => {
                                 alt="Globe icon"
                                 width={150}
                                 height={16}
+                                priority
                             />
                         </Link>
                     </div>
@@ -69,6 +70,7 @@ const NavigationBar = () => {
                                         alt="Globe icon"
                                         width={30}
                                         height={16}
+                                        priority
                                     />
                                 </Link>
                                 <ChevronDown size={16} className="ml-1" />
@@ -92,7 +94,7 @@ const NavigationBar = () => {
                         {session ? (
                             <div className="relative">
                                 <button onClick={() => setProfileOpen(!profileOpen)} className="flex items-center space-x-2">
-                                    <Image src={session?.user?.image ?? "/default-avatar.png"} alt="User Avatar" width={36} height={36} className="rounded-full border" />
+                                    <Image src={session?.user?.image ?? "/default-avatar.png"} alt="User Avatar" width={36} height={36} className="rounded-full border" priority />
                                     <ChevronDown size={16} className="text-gray-800 dark:text-white" />
                                 </button>
                                 {profileOpen && (
